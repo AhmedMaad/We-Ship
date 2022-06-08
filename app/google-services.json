@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "303845193364",
+    "project_id": "we-ship-d5be1",
+    "storage_bucket": "we-ship-d5be1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303845193364:android:2b04401ab6f55cb6382681",
+        "android_client_info": {
+          "package_name": "com.maad.weship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "303845193364-17u0drgdfjtj1l396h9e3bpic910v8q8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUrGpA5sOHt42Tx9tj4mUpxu9_4XGv4fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303845193364-17u0drgdfjtj1l396h9e3bpic910v8q8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
