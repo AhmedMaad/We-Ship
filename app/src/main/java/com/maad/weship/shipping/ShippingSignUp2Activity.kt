@@ -4,9 +4,10 @@ import android.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import com.maad.weship.ParentActivity
 import com.maad.weship.databinding.ActivityShippingSignUp2Binding
 
-class ShippingSignUp2Activity : AppCompatActivity() {
+class ShippingSignUp2Activity : ParentActivity() {
 
     /*private val types = arrayOf("x", "y", "z", "h")*/
 

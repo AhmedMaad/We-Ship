@@ -16,6 +16,17 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/submit_btn"
+        app:layout_constraintEnd_toEndOf="@id/submit_btn"
+        app:layout_constraintStart_toStartOf="@id/submit_btn"
+        app:layout_constraintTop_toTopOf="@id/submit_btn"
+        tools:visibility="visible" />
+
     <EditText
         android:id="@+id/confirm_password_et"
         style="@style/ETStyle"

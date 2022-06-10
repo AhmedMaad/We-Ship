@@ -14,7 +14,10 @@
         android:theme="@style/Theme.WeShip"
         tools:targetApi="31">
         <activity
-            android:name=".CompanySignUpActivity"
+            android:name=".company.CompanyHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".company.CompanySignUpActivity"
             android:exported="false" />
         <activity
             android:name=".CompanyTypeActivity"

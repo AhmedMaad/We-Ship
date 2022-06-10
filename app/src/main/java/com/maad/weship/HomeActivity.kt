@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.maad.weship.databinding.ActivityHomeBinding
 import com.maad.weship.shipping.ShippingSignUpActivity
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : ParentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

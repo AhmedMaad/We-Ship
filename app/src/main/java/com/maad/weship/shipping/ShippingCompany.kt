@@ -10,5 +10,6 @@ class ShippingCompany(
     val commercialRegistration: String = "",
     val companyAddress: String = "",
     val companyPhoneNumber: String = "",
-    val companyType: String = ""
+    val companyType: String = "",
+    val image: String = ""
 )
