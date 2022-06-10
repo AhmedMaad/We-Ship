@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.maad.weship.databinding.ActivityHomeBinding
+import com.maad.weship.shipping.ShippingSignUpActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.signUpBtn.setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
+            startActivity(Intent(this, CompanyTypeActivity::class.java))
         }
 
     }

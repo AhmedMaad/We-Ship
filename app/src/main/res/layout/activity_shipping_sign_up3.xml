@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    tools:context=".shipping.ShippingSignUp3Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TVStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Representative Full Name" />
+
+        <EditText
+            android:id="@+id/representative_full_name_et"
+            style="@style/ETStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp" />
+
+        <TextView
+            style="@style/TVStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="National ID" />
+
+        <EditText
+            android:id="@+id/national_id_et"
+            style="@style/ETStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp" />
+
+        <TextView
+            style="@style/TVStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Representative Email" />
+
+        <EditText
+            android:id="@+id/representative_email_et"
+            style="@style/ETStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp" />
+
+        <TextView
+            style="@style/TVStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number" />
+
+        <EditText
+            android:id="@+id/phone_number_et"
+            style="@style/ETStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp"
+            android:inputType="phone" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/next_btn"
+            style="@style/BtnStyle"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Submit"/>
+
+    </LinearLayout>
+
+</ScrollView>
