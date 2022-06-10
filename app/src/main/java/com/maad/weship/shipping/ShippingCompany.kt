@@ -1,15 +1,19 @@
 package com.maad.weship.shipping
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class ShippingCompany(
-    val id: String = "",
-    val email: String = "",
-    val username: String = "",
-    val password: String = "",
-    val companyName: String = "",
-    val taxNumber: String = "",
-    val commercialRegistration: String = "",
-    val companyAddress: String = "",
-    val companyPhoneNumber: String = "",
-    val companyType: String = "",
-    val image: String = ""
-)
+    var email: String = "",
+    var username: String = "",
+    var password: String = "",
+    var companyName: String = "",
+    var taxNumber: String = "",
+    var commercialRegistration: String = "",
+    var companyAddress: String = "",
+    var companyPhoneNumber: String = "",
+    var companyType: String = "",
+    var id: String = "",
+    var image: String = ""
+) : Parcelable

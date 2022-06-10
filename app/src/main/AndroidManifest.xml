@@ -14,6 +14,9 @@
         android:theme="@style/Theme.WeShip"
         tools:targetApi="31">
         <activity
+            android:name=".ShippingCompanyActivity"
+            android:exported="false" />
+        <activity
             android:name=".company.CompanyHomeActivity"
             android:exported="false" />
         <activity

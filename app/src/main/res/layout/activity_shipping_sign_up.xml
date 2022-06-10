@@ -17,23 +17,13 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <EditText
-        android:id="@+id/confirm_password_et"
-        style="@style/ETStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@id/next_btn" />
-
-    <EditText
         android:id="@+id/password_et"
         style="@style/ETStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@id/confirm_password_et" />
+        app:layout_constraintBottom_toTopOf="@id/next_btn" />
 
     <EditText
         android:id="@+id/username_et"

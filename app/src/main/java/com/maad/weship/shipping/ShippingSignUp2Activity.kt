@@ -1,6 +1,7 @@
 package com.maad.weship.shipping
 
 import android.R
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -20,7 +21,19 @@ class ShippingSignUp2Activity : ParentActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.companyTypeSpinner.adapter = adapter*/
 
+        val shipping = intent.getParcelableExtra<ShippingCompany>("shipping")!!
 
+        binding.nextBtn.setOnClickListener {
+            shipping.companyName = binding.nameEt.text.toString()
+            shipping.taxNumber = binding.taxNumberEt.text.toString()
+            shipping.commercialRegistration = binding.commercialRegistrationEt.text.toString()
+            shipping.companyAddress = binding.addressEt.text.toString()
+            shipping.companyPhoneNumber = binding.phoneNumberEt.text.toString()
+            shipping.companyType = binding.companyTypeEt.text.toString()
+            val i = Intent(this, ShippingSignUp3Activity::class.java)
+            i.putExtra("shipping", shipping)
+            startActivity(i)
+        }
 
     }
 

@@ -69,6 +69,7 @@ class CompanySignUpActivity : ParentActivity() {
                 binding.submitBtn.visibility = View.VISIBLE
                 Toast.makeText(this, "Welcome, \"$username\"", Toast.LENGTH_LONG).show()
                 startActivity(Intent(this, CompanyHomeActivity::class.java))
+                finishAffinity()
             }
     }
 
