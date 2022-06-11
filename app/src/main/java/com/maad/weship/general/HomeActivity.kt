@@ -1,12 +1,11 @@
-package com.maad.weship
+package com.maad.weship.general
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.maad.weship.databinding.ActivityHomeBinding
-import com.maad.weship.shipping.ShippingSignUpActivity
 
-class HomeActivity : ParentActivity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

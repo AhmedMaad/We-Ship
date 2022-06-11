@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="32dp"
+    android:orientation="vertical"
     tools:context=".company.CompanyHomeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/register_shipment_btn"
+        style="@style/BtnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Register New Shipment"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/view_current_shipment_btn"
+        style="@style/BtnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="View Current Shipments"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/view_previous_shipments_btn"
+        style="@style/BtnStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="View Previous Shipments"/>
+
+</LinearLayout>

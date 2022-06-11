@@ -8,7 +8,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.maad.weship.ParentActivity
+import com.maad.weship.general.ParentActivity
 import com.maad.weship.databinding.ActivityCompanySignUpBinding
 
 class CompanySignUpActivity : ParentActivity() {

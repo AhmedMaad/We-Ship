@@ -2,11 +2,8 @@ package com.maad.weship.shipping
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import com.maad.weship.ParentActivity
+import com.maad.weship.general.ParentActivity
 import com.maad.weship.databinding.ActivityShippingSignUpBinding
 
 class ShippingSignUpActivity : ParentActivity() {

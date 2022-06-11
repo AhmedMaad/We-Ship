@@ -1,16 +1,29 @@
 package com.maad.weship.company
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import com.maad.weship.databinding.ActivityCompanySignUpBinding
-import com.maad.weship.databinding.ActivityHomeBinding
+import com.maad.weship.databinding.ActivityCompanyHomeBinding
+import com.maad.weship.general.ParentActivity
 
-class CompanyHomeActivity : AppCompatActivity() {
+class CompanyHomeActivity : ParentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityHomeBinding.inflate(layoutInflater)
+        val binding = ActivityCompanyHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.registerShipmentBtn.setOnClickListener {
+            startActivity(Intent(this, RegisterShipmentActivity::class.java))
+        }
+
+        binding.viewCurrentShipmentBtn.setOnClickListener {
+            startActivity(Intent(this, CurrentShipmentsActivity::class.java))
+        }
+
+        binding.viewPreviousShipmentsBtn.setOnClickListener {
+            startActivity(Intent(this, PreviousShipmentsActivity::class.java))
+        }
+
     }
 
 }

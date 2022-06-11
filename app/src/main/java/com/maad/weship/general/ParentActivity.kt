@@ -1,7 +1,8 @@
-package com.maad.weship
+package com.maad.weship.general
 
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import com.maad.weship.R
 
 open class ParentActivity: AppCompatActivity() {
 

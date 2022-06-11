@@ -1,11 +1,8 @@
 package com.maad.weship.shipping
 
-import android.R
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import com.maad.weship.ParentActivity
+import com.maad.weship.general.ParentActivity
 import com.maad.weship.databinding.ActivityShippingSignUp2Binding
 
 class ShippingSignUp2Activity : ParentActivity() {

@@ -1,7 +1,6 @@
-package com.maad.weship
+package com.maad.weship.general
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.maad.weship.company.CompanySignUpActivity
 import com.maad.weship.databinding.ActivityCompanyTypeBinding

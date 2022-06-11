@@ -1,6 +1,5 @@
-package com.maad.weship
+package com.maad.weship.general
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.maad.weship.databinding.ActivitySignInBinding
 
