@@ -14,13 +14,13 @@
         android:theme="@style/Theme.WeShip"
         tools:targetApi="31">
         <activity
-            android:name=".PreviousShipmentsActivity"
+            android:name=".company.PreviousShipmentsActivity"
             android:exported="false" />
         <activity
-            android:name=".CurrentShipmentsActivity"
+            android:name=".company.CurrentShipmentsActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterShipmentActivity"
+            android:name=".company.RegisterShipmentActivity"
             android:exported="false" />
         <activity
             android:name=".shipping.ShippingCompanyHomeActivity"

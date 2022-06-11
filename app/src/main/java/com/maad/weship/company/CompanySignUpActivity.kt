@@ -49,7 +49,8 @@ class CompanySignUpActivity : ParentActivity() {
                     addCompany()
                 } else {
                     Toast.makeText(this, "Try with another email", Toast.LENGTH_SHORT).show()
-                    binding.progress.visibility = View.VISIBLE
+                    binding.progress.visibility = View.INVISIBLE
+                    binding.submitBtn.visibility = View.VISIBLE
                 }
 
             }
@@ -65,6 +66,10 @@ class CompanySignUpActivity : ParentActivity() {
             .document(id)
             .set(company)
             .addOnSuccessListener {
+                val pref = getSharedPreferences("settings", MODE_PRIVATE).edit()
+                pref.putString("id", id)
+                pref.apply()
+
                 binding.progress.visibility = View.INVISIBLE
                 binding.submitBtn.visibility = View.VISIBLE
                 Toast.makeText(this, "Welcome, \"$username\"", Toast.LENGTH_LONG).show()

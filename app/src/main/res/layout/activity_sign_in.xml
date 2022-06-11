@@ -15,6 +15,17 @@
         android:text="LogIn"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/login_btn"
+        app:layout_constraintEnd_toEndOf="@id/login_btn"
+        app:layout_constraintStart_toStartOf="@id/login_btn"
+        app:layout_constraintTop_toTopOf="@id/login_btn"
+        tools:visibility="visible" />
+
     <TextView
         android:id="@+id/forgot_password_tv"
         android:layout_width="wrap_content"

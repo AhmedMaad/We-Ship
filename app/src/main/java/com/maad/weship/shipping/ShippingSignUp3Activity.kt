@@ -57,6 +57,10 @@ class ShippingSignUp3Activity : ParentActivity() {
 
         db.collection("shippingCompanies").document(id).set(shipping).addOnSuccessListener {
             db.collection("representatives").document(id).set(representative).addOnSuccessListener {
+                val pref = getSharedPreferences("settings", MODE_PRIVATE).edit()
+                pref.putString("id", id)
+                pref.apply()
+
                 binding.progress.visibility = View.INVISIBLE
                 binding.submitBtn.visibility = View.VISIBLE
                 Toast.makeText(this, "Welcome, \"${representative.name}\"", Toast.LENGTH_LONG)
