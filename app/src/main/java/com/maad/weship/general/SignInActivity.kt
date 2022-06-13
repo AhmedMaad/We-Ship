@@ -79,7 +79,6 @@ class SignInActivity : ParentActivity() {
 
         binding.forgotPasswordTv.setOnClickListener {
             val username = binding.usernameEt.text.toString()
-            val password = binding.passwordEt.text.toString()
             if (username.isEmpty())
                 Toast.makeText(this, "Username is required", Toast.LENGTH_SHORT).show();
             else {
