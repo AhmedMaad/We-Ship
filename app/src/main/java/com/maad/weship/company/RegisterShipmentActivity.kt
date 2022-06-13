@@ -12,8 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.maad.weship.databinding.ActivityRegisterShipmentBinding
+import com.maad.weship.general.ParentActivity
 
-class RegisterShipmentActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
+class RegisterShipmentActivity : ParentActivity(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var binding: ActivityRegisterShipmentBinding
     val types = arrayOf("LCL", "FCL")

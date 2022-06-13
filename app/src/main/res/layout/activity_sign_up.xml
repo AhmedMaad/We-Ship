@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="32dp"
-    tools:context=".shipping.ShippingSignUpActivity">
+    tools:context=".general.SignUpActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_btn"

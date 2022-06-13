@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="32dp"
-    tools:context=".company.CompanySignUpActivity">
+    tools:context=".general.ProfileActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submit_btn"

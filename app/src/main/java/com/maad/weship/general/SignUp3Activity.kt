@@ -1,4 +1,4 @@
-package com.maad.weship.shipping
+package com.maad.weship.general
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,19 +8,20 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.maad.weship.general.ParentActivity
-import com.maad.weship.databinding.ActivityShippingSignUp3Binding
+import com.maad.weship.databinding.ActivitySignUp3Binding
+import com.maad.weship.shipping.Representative
+import com.maad.weship.shipping.ShippingCompanyHomeActivity
 
-class ShippingSignUp3Activity : ParentActivity() {
+class SignUp3Activity : ParentActivity() {
 
     private lateinit var db: FirebaseFirestore
-    private lateinit var binding: ActivityShippingSignUp3Binding
+    private lateinit var binding: ActivitySignUp3Binding
     private var id = ""
-    private lateinit var shipping: ShippingCompany
+    private lateinit var shipping: Company
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityShippingSignUp3Binding.inflate(layoutInflater)
+        binding = ActivitySignUp3Binding.inflate(layoutInflater)
         setContentView(binding.root)
         db = Firebase.firestore
         shipping = intent.getParcelableExtra("shipping")!!
@@ -55,7 +56,7 @@ class ShippingSignUp3Activity : ParentActivity() {
             binding.phoneNumberEt.text.toString(),
         )
 
-        db.collection("shippingCompanies").document(id).set(shipping).addOnSuccessListener {
+        db.collection("companies").document(id).set(shipping).addOnSuccessListener {
             db.collection("representatives").document(id).set(representative).addOnSuccessListener {
                 val pref = getSharedPreferences("settings", MODE_PRIVATE).edit()
                 pref.putString("id", id)

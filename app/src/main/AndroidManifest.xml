@@ -14,6 +14,9 @@
         android:theme="@style/Theme.WeShip"
         tools:targetApi="31">
         <activity
+            android:name=".company.CompanyProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".company.PreviousShipmentsActivity"
             android:exported="false" />
         <activity
@@ -35,13 +38,13 @@
             android:name=".general.CompanyTypeActivity"
             android:exported="false" />
         <activity
-            android:name=".shipping.ShippingSignUp3Activity"
+            android:name=".general.SignUp3Activity"
             android:exported="false" />
         <activity
-            android:name=".shipping.ShippingSignUp2Activity"
+            android:name=".general.SignUp2Activity"
             android:exported="false" />
         <activity
-            android:name=".shipping.ShippingSignUpActivity"
+            android:name=".general.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".general.SignInActivity"

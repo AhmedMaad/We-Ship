@@ -2,6 +2,7 @@ package com.maad.weship.general
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
@@ -9,18 +10,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
-import com.maad.weship.company.Company
 import com.maad.weship.company.CompanyHomeActivity
 import com.maad.weship.databinding.ActivitySignInBinding
-import com.maad.weship.shipping.ShippingCompany
 import com.maad.weship.shipping.ShippingCompanyHomeActivity
 
 class SignInActivity : ParentActivity() {
 
     private lateinit var db: FirebaseFirestore
-    private var companyFlag = false
-    private var shippingFlag = false
     private lateinit var binding: ActivitySignInBinding
+    private var flag = false
+    private var resetFlag = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,41 +40,19 @@ class SignInActivity : ParentActivity() {
                     val allCompanies = it.toObjects<Company>()
                     for (company in allCompanies)
                         if (company.username == username) {
-                            companyFlag = true
-                            makeLogin(company.email, password)
+                            flag = true
+                            makeLogin(company.email, password, company.userType)
                             break
                         }
-
-                    if (!companyFlag)
-                        db.collection("shippingCompanies").get().addOnSuccessListener { x ->
-                            val allShippingCompanies = x.toObjects(ShippingCompany::class.java)
-                            for (shipping in allShippingCompanies)
-                                if (shipping.username == username) {
-                                    shippingFlag = true
-                                    makeLogin(shipping.email, password)
-                                    break
-                                }
-
-                            if (!companyFlag && !shippingFlag) {
-                                Toast.makeText(
-                                    this,
-                                    "Wrong username or password",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
-                                binding.progress.visibility = View.INVISIBLE
-                                binding.loginBtn.visibility = View.VISIBLE
-                            }
-
-                        }
-
+                    if (!flag) {
+                        Toast.makeText(this, "Wrong username", Toast.LENGTH_SHORT).show()
+                        binding.progress.visibility = View.INVISIBLE
+                        binding.loginBtn.visibility = View.VISIBLE
+                    }
                 }
             }
 
         }
-
-
-
 
         binding.forgotPasswordTv.setOnClickListener {
             val username = binding.usernameEt.text.toString()
@@ -88,33 +65,16 @@ class SignInActivity : ParentActivity() {
                     val allCompanies = it.toObjects<Company>()
                     for (company in allCompanies)
                         if (company.username == username) {
-                            companyFlag = true
+                            resetFlag = true
                             resetPassword(company.email)
                             break
                         }
 
-                    if (!companyFlag)
-                        db.collection("shippingCompanies").get().addOnSuccessListener { x ->
-                            val allShippingCompanies = x.toObjects(ShippingCompany::class.java)
-                            for (shipping in allShippingCompanies)
-                                if (shipping.username == username) {
-                                    shippingFlag = true
-                                    resetPassword(shipping.email)
-                                    break
-                                }
-
-                            if (!companyFlag && !shippingFlag) {
-                                Toast.makeText(
-                                    this,
-                                    "Wrong username",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
-                                binding.progress.visibility = View.INVISIBLE
-                                binding.loginBtn.visibility = View.VISIBLE
-                            }
-
-                        }
+                    if (!resetFlag) {
+                        Toast.makeText(this, "Wrong username", Toast.LENGTH_SHORT).show()
+                        binding.progress.visibility = View.INVISIBLE
+                        binding.loginBtn.visibility = View.VISIBLE
+                    }
 
                 }
             }
@@ -134,7 +94,7 @@ class SignInActivity : ParentActivity() {
             }
     }
 
-    private fun makeLogin(email: String, password: String) {
+    private fun makeLogin(email: String, password: String, companyType: String) {
         val auth = Firebase.auth
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -143,11 +103,19 @@ class SignInActivity : ParentActivity() {
                     val pref = getSharedPreferences("settings", MODE_PRIVATE).edit()
                     pref.putString("id", id)
                     pref.apply()
-                    if (companyFlag)
-                        startActivity(Intent(this, CompanyHomeActivity::class.java))
-                    else if (shippingFlag)
-                        startActivity(Intent(this, ShippingCompanyHomeActivity::class.java))
-                    finishAffinity()
+                    when (companyType) {
+                        "shipping" -> {
+                            startActivity(Intent(this, ShippingCompanyHomeActivity::class.java))
+                            finishAffinity()
+                        }
+                        "other" -> {
+                            finishAffinity()
+                            startActivity(Intent(this, CompanyHomeActivity::class.java))
+                        }
+                    }
+                } else {
+                    binding.progress.visibility = View.INVISIBLE
+                    binding.loginBtn.visibility = View.VISIBLE
                 }
 
             }
