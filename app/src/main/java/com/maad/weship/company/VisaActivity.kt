@@ -12,7 +12,7 @@ class VisaActivity : AppCompatActivity() {
 
         val visaPay: Button = findViewById(R.id.pay_btn)
         visaPay.setOnClickListener {
-            //TODO: Add request to history
+            //TODO: Add request to history and delete from current recycler view
         }
 
     }
