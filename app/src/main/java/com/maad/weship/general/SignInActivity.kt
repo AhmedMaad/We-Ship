@@ -28,8 +28,10 @@ class SignInActivity : ParentActivity() {
         db = Firebase.firestore
 
         binding.loginBtn.setOnClickListener {
-            val username = binding.usernameEt.text.toString()
-            val password = binding.passwordEt.text.toString()
+            //val username = binding.usernameEt.text.toString()
+            //val password = binding.passwordEt.text.toString()
+            val username = "s1"
+            val password = "123456"
             if (username.isEmpty() || password.isEmpty()) {
                 binding.usernameEt.error = "Required"
                 binding.passwordEt.error = "Required"

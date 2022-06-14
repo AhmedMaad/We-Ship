@@ -1,205 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="@color/white"
-    android:padding="16dp">
+    android:background="@color/white">
 
-    <!--This should be at least two time the height-->
-    <FrameLayout
-        android:id="@+id/cell_content_view"
+    <com.ramotion.foldingcell.FoldingCell
+        android:id="@+id/folding_cell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        tools:visibility="visible">
-        <!--description w b3daha from port w b3daha "arrow" to delivery port..etc.-->
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="16dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!--This should be at least two time the height-->
+        <FrameLayout
+            android:id="@+id/cell_content_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible">
 
-            <TextView
-                android:id="@+id/description_tv"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="200dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="some description" />
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/pickup_port_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:gravity="end"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/arrow_iv"
-                app:layout_constraintEnd_toStartOf="@id/arrow_iv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/arrow_iv"
-                tools:text="Giza" />
+                <TextView
+                    android:id="@+id/description_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="some description" />
 
-            <ImageView
-                android:id="@+id/arrow_iv"
-                android:layout_width="40dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_arrow"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/description_tv" />
-
-            <TextView
-                android:id="@+id/delivery_port_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/arrow_iv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/arrow_iv"
-                app:layout_constraintTop_toTopOf="@id/arrow_iv"
-                tools:text="Cairo" />
-
-            <TextView
-                android:id="@+id/palettes_number_key_tv"
-                style="@style/TVStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Palettes Number: "
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pickup_port_tv" />
-
-            <TextView
-                android:id="@+id/palettes_number_value_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:gravity="end"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/palettes_number_key_tv"
-                app:layout_constraintStart_toEndOf="@id/palettes_number_key_tv"
-                app:layout_constraintTop_toTopOf="@id/palettes_number_key_tv"
-                tools:text="3" />
-
-            <TextView
-                android:id="@+id/deliver_before_key_tv"
-                style="@style/TVStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Deliver before: "
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/palettes_number_value_tv" />
-
-            <TextView
-                android:id="@+id/deliver_before_value_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:gravity="end"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/deliver_before_key_tv"
-                app:layout_constraintStart_toEndOf="@id/deliver_before_key_tv"
-                app:layout_constraintTop_toTopOf="@id/deliver_before_key_tv"
-                tools:text="@tools:sample/date/ddmmyy" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/cell_title_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/profile_cv"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="40dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/pickup_port_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="end"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/arrow_iv"
+                    app:layout_constraintEnd_toStartOf="@id/arrow_iv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/arrow_iv"
+                    tools:text="Giza" />
 
                 <ImageView
-                    android:id="@+id/profile_iv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:src="@tools:sample/avatars" />
+                    android:id="@+id/arrow_iv"
+                    android:layout_width="40dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/ic_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description_tv" />
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/delivery_port_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/arrow_iv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/arrow_iv"
+                    app:layout_constraintTop_toTopOf="@id/arrow_iv"
+                    tools:text="Cairo" />
 
-            <TextView
-                android:id="@+id/company_name_tv"
-                style="@style/TVStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@id/profile_cv"
-                app:layout_constraintStart_toStartOf="@id/profile_cv"
-                app:layout_constraintTop_toBottomOf="@id/profile_cv"
-                tools:text="Company X" />
+                <TextView
+                    android:id="@+id/palettes_number_key_tv"
+                    style="@style/TVStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="Palettes Number: "
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pickup_port_tv" />
 
-            <ImageView
-                android:id="@+id/weight_iv"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="32dp"
-                android:src="@drawable/ic_weight"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/profile_cv" />
+                <TextView
+                    android:id="@+id/palettes_number_value_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="end"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/palettes_number_key_tv"
+                    tools:text="3" />
 
-            <TextView
-                android:id="@+id/weight_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@id/weight_iv"
-                app:layout_constraintStart_toStartOf="@id/weight_iv"
-                app:layout_constraintTop_toBottomOf="@id/weight_iv"
-                tools:text="300 kg" />
+                <TextView
+                    android:id="@+id/deliver_before_key_tv"
+                    style="@style/TVStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="Deliver before: "
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/palettes_number_value_tv" />
 
-            <TextView
-                android:id="@+id/type_key_tv"
-                style="@style/TVStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:text="Type"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/weight_iv" />
+                <TextView
+                    android:id="@+id/deliver_before_value_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="end"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/deliver_before_key_tv"
+                    tools:text="@tools:sample/date/ddmmyy" />
 
-            <TextView
-                android:id="@+id/type_value_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@id/type_key_tv"
-                app:layout_constraintStart_toStartOf="@id/type_key_tv"
-                app:layout_constraintTop_toBottomOf="@id/type_key_tv"
-                tools:text="LCL" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/accept_btn"
+                    style="@style/BtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accept"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/deliver_before_value_tv" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </FrameLayout>
+        </FrameLayout>
 
-</com.ramotion.foldingcell.FoldingCell>
+        <FrameLayout
+            android:id="@+id/cell_title_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profile_cv"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/profile_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:src="@tools:sample/avatars" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/company_name_tv"
+                    style="@style/TVStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/profile_cv"
+                    app:layout_constraintStart_toStartOf="@id/profile_cv"
+                    app:layout_constraintTop_toBottomOf="@id/profile_cv"
+                    tools:text="Company X" />
+
+                <ImageView
+                    android:id="@+id/weight_iv"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="32dp"
+                    android:src="@drawable/ic_weight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/profile_cv" />
+
+                <TextView
+                    android:id="@+id/weight_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_cv"
+                    app:layout_constraintEnd_toEndOf="@id/weight_iv"
+                    app:layout_constraintStart_toStartOf="@id/weight_iv"
+                    app:layout_constraintTop_toBottomOf="@id/weight_iv"
+                    tools:text="300 kg" />
+
+                <TextView
+                    android:id="@+id/type_key_tv"
+                    style="@style/TVStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:text="Type"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/weight_iv" />
+
+                <TextView
+                    android:id="@+id/type_value_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_cv"
+                    app:layout_constraintEnd_toEndOf="@id/type_key_tv"
+                    app:layout_constraintStart_toStartOf="@id/type_key_tv"
+                    app:layout_constraintTop_toBottomOf="@id/type_key_tv"
+                    tools:text="LCL" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+    </com.ramotion.foldingcell.FoldingCell>
+
+</LinearLayout>

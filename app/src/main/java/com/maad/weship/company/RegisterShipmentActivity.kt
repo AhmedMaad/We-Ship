@@ -20,12 +20,23 @@ class RegisterShipmentActivity : ParentActivity(), DatePickerDialog.OnDateSetLis
     val types = arrayOf("LCL", "FCL")
     var date = ""
     private lateinit var db: FirebaseFirestore
+    private lateinit var companyId: String
+    private lateinit var companyName: String
+    private lateinit var companyPicture: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterShipmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         db = Firebase.firestore
+
+        val pref = getSharedPreferences("settings", MODE_PRIVATE)
+        companyId = pref.getString("id", null)!!
+
+        db.collection("companies").document(companyId).get().addOnSuccessListener {
+            companyName = it.getString("companyName")!!
+            companyPicture = it.getString("companyPicture") ?: ""
+        }
 
         val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, types)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -44,8 +55,7 @@ class RegisterShipmentActivity : ParentActivity(), DatePickerDialog.OnDateSetLis
             val description = binding.descriptionEt.text.toString()
             val pickupPort = binding.pickupPortEt.text.toString()
             val deliveryPort = binding.deliveryPortEt.text.toString()
-            val pref = getSharedPreferences("settings", MODE_PRIVATE)
-            val companyId = pref.getString("id", null)!!
+
             val shipment = Shipment(
                 palettes,
                 weight,
@@ -54,7 +64,9 @@ class RegisterShipmentActivity : ParentActivity(), DatePickerDialog.OnDateSetLis
                 deliveryPort,
                 date,
                 types[binding.containerTypeSpinner.selectedItemPosition],
-                companyId
+                companyId,
+                companyName,
+                companyPicture
             )
 
             db.collection("shipments").add(shipment).addOnSuccessListener {
