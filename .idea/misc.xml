@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/drawable/box.xml" value="0.141" />
+        <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/drawable/ic_bad.xml" value="0.1605" />
+        <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/drawable/ic_happy.xml" value="0.1605" />
+        <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/drawable/ic_neutral.xml" value="0.1605" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/drawable/line_divider.xml" value="0.1185" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/drawable/oval.xml" value="0.1695" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout-land/activity_home.xml" value="0.3324324324324324" />
@@ -15,7 +18,8 @@
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_current_shipments.xml" value="0.25" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_home.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_payment.xml" value="0.16" />
+        <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_payment.xml" value="0.22" />
+        <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_previous_shipments.xml" value="0.15775972637879435" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_profile.xml" value="0.22" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_register_shipment.xml" value="0.2" />
         <entry key="..\:/Work/Freelance/We Ship/app/src/main/res/layout/activity_shipping_company.xml" value="0.15775972637879435" />

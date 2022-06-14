@@ -1,6 +1,6 @@
 package com.maad.weship.company
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -14,10 +14,11 @@ import com.maad.weship.databinding.ActivityCurrentShipmentsBinding
 import com.maad.weship.general.ParentActivity
 import com.maad.weship.shipping.ShipmentRequest
 
-class CurrentShipmentsActivity : ParentActivity() {
+class CurrentShipmentsActivity : ParentActivity(), AcceptedShipmentAdapter.ItemClickListener {
 
     private lateinit var db: FirebaseFirestore
     private lateinit var binding: ActivityCurrentShipmentsBinding
+    private var requests = arrayListOf<ShipmentRequest>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,19 +29,23 @@ class CurrentShipmentsActivity : ParentActivity() {
 
     override fun onResume() {
         super.onResume()
+        binding.progress.visibility = View.VISIBLE
         val pref = getSharedPreferences("settings", MODE_PRIVATE)
         val companyId = pref.getString("id", null)!!
 
         db.collection("shipmentRequestStatus").get().addOnSuccessListener {
-            val requests = arrayListOf<ShipmentRequest>()
+            requests = arrayListOf<ShipmentRequest>()
+            requests.clear()
             val all = it.toObjects(ShipmentRequest::class.java)
             for (request in all)
                 if (request.status == "Pending" && companyId == request.request.companyId)
                     requests.add(request)
 
-            if (requests.isEmpty())
+            if (requests.isEmpty()) {
                 Toast.makeText(this, "No Requests available", Toast.LENGTH_SHORT).show();
-            else {
+                binding.acceptedRequestsRv.visibility = View.INVISIBLE
+            } else {
+                binding.acceptedRequestsRv.visibility = View.VISIBLE
                 val divider =
                     DividerItemDecoration(
                         binding.acceptedRequestsRv.context,
@@ -53,12 +58,18 @@ class CurrentShipmentsActivity : ParentActivity() {
                     )!!
                 )
                 binding.acceptedRequestsRv.addItemDecoration(divider)
-                val adapter = AcceptedShipmentAdapter(this, requests)
+                val adapter = AcceptedShipmentAdapter(this, requests, this)
                 binding.acceptedRequestsRv.adapter = adapter
             }
             binding.progress.visibility = View.INVISIBLE
 
         }
+    }
+
+    override fun onItemClick(position: Int) {
+        val i = Intent(this, PaymentActivity::class.java)
+        i.putExtra("request", requests[position])
+        startActivity(i)
     }
 
 }
