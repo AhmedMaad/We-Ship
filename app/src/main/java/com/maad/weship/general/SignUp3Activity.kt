@@ -8,6 +8,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.maad.weship.company.CompanyHomeActivity
 import com.maad.weship.databinding.ActivitySignUp3Binding
 import com.maad.weship.shipping.Representative
 import com.maad.weship.shipping.ShippingCompanyHomeActivity
@@ -66,8 +67,16 @@ class SignUp3Activity : ParentActivity() {
                 binding.submitBtn.visibility = View.VISIBLE
                 Toast.makeText(this, "Welcome, \"${representative.name}\"", Toast.LENGTH_LONG)
                     .show()
-                startActivity(Intent(this, ShippingCompanyHomeActivity::class.java))
-                finishAffinity()
+                when (shipping.userType) {
+                    "shipping" -> {
+                        startActivity(Intent(this, ShippingCompanyHomeActivity::class.java))
+                        finishAffinity()
+                    }
+                    "other" -> {
+                        finishAffinity()
+                        startActivity(Intent(this, CompanyHomeActivity::class.java))
+                    }
+                }
             }
         }
 

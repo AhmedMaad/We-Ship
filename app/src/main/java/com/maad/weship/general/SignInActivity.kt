@@ -94,7 +94,7 @@ class SignInActivity : ParentActivity() {
             }
     }
 
-    private fun makeLogin(email: String, password: String, companyType: String) {
+    private fun makeLogin(email: String, password: String, userType: String) {
         val auth = Firebase.auth
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -103,7 +103,7 @@ class SignInActivity : ParentActivity() {
                     val pref = getSharedPreferences("settings", MODE_PRIVATE).edit()
                     pref.putString("id", id)
                     pref.apply()
-                    when (companyType) {
+                    when (userType) {
                         "shipping" -> {
                             startActivity(Intent(this, ShippingCompanyHomeActivity::class.java))
                             finishAffinity()
