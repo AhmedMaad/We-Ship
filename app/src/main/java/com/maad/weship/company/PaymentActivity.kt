@@ -20,6 +20,8 @@ class PaymentActivity : AppCompatActivity() {
             startActivity(Intent(this, VisaActivity::class.java))
         }
 
+        //TODO: add rating in design
+
     }
 
 }
