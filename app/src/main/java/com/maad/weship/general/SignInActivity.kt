@@ -29,9 +29,9 @@ class SignInActivity : ParentActivity() {
 
         binding.loginBtn.setOnClickListener {
             val username = binding.usernameEt.text.toString()
-            //val password = binding.passwordEt.text.toString()
+            val password = binding.passwordEt.text.toString()
             //val username = "c1"
-            val password = "123456"
+            //val password = "123456"
             if (username.isEmpty() || password.isEmpty()) {
                 binding.usernameEt.error = "Required"
                 binding.passwordEt.error = "Required"
@@ -123,7 +123,7 @@ class SignInActivity : ParentActivity() {
                         }
                     }
                 } else {
-                    Toast.makeText(this, "Wrong username", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Wrong username/password", Toast.LENGTH_SHORT).show()
                     binding.progress.visibility = View.INVISIBLE
                     binding.loginBtn.visibility = View.VISIBLE
                 }

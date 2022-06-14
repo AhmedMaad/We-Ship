@@ -51,17 +51,17 @@
             android:exported="false" />
         <activity
             android:name=".general.SignInActivity"
-            android:exported="true">
+            android:exported="false" />
+        <activity
+            android:name=".general.HomeActivity"
+            android:exported="true"
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".general.HomeActivity"
-            android:exported="true"
-            android:theme="@style/NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

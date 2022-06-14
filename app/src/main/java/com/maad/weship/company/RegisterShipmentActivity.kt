@@ -35,7 +35,7 @@ class RegisterShipmentActivity : ParentActivity(), DatePickerDialog.OnDateSetLis
 
         db.collection("companies").document(companyId).get().addOnSuccessListener {
             companyName = it.getString("companyName")!!
-            companyPicture = it.getString("companyPicture") ?: ""
+            companyPicture = it.getString("image") ?: ""
         }
 
         val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, types)

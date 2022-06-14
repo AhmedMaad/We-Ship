@@ -35,7 +35,8 @@
             style="@style/ETStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp" />
+            android:layout_marginEnd="64dp"
+            android:inputType="number" />
 
         <TextView
             style="@style/TVStyle"
