@@ -15,6 +15,12 @@ class ShippingCompanyHomeActivity : ParentActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityShippingCompanyHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        /*
+        * read all requests with request type "pending"
+        * the requests should not exist in the "requestshippingstatus" collection before
+        * */
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
