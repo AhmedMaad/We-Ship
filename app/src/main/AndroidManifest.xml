@@ -42,13 +42,7 @@
             android:exported="false" />
         <activity
             android:name=".general.CompanyTypeActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".general.SignUp3Activity"
             android:exported="false" />
@@ -58,7 +52,11 @@
         <activity
             android:name=".general.SignInActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".general.HomeActivity"

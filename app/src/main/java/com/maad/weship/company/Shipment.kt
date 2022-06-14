@@ -1,5 +1,9 @@
 package com.maad.weship.company
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class Shipment(
     val numberOfPalettes: Int = 0,
     val weight: Double = 0.0,
@@ -13,4 +17,4 @@ class Shipment(
     val companyPicture: String = "",
     val status: String = "Pending",
     val requestId: String = "",
-)
+): Parcelable

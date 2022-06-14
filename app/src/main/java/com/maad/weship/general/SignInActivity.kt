@@ -28,9 +28,9 @@ class SignInActivity : ParentActivity() {
         db = Firebase.firestore
 
         binding.loginBtn.setOnClickListener {
-            //val username = binding.usernameEt.text.toString()
+            val username = binding.usernameEt.text.toString()
             //val password = binding.passwordEt.text.toString()
-            val username = "s1"
+            //val username = "c1"
             val password = "123456"
             if (username.isEmpty() || password.isEmpty()) {
                 binding.usernameEt.error = "Required"
@@ -43,7 +43,12 @@ class SignInActivity : ParentActivity() {
                     for (company in allCompanies)
                         if (company.username == username) {
                             flag = true
-                            makeLogin(company.email, password, company.userType)
+                            makeLogin(
+                                company.email,
+                                password,
+                                company.userType,
+                                company.companyName
+                            )
                             break
                         }
                     if (!flag) {
@@ -91,12 +96,12 @@ class SignInActivity : ParentActivity() {
                 if (task.isSuccessful) {
                     binding.progress.visibility = View.INVISIBLE
                     binding.loginBtn.visibility = View.VISIBLE
-                    Toast.makeText(this, "Check your email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Check your email", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    private fun makeLogin(email: String, password: String, userType: String) {
+    private fun makeLogin(email: String, password: String, userType: String, companyName: String) {
         val auth = Firebase.auth
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -107,12 +112,14 @@ class SignInActivity : ParentActivity() {
                     pref.apply()
                     when (userType) {
                         "shipping" -> {
-                            startActivity(Intent(this, ShippingCompanyHomeActivity::class.java))
+                            val i = Intent(this, ShippingCompanyHomeActivity::class.java)
+                            i.putExtra("name", companyName)
+                            startActivity(i)
                             finishAffinity()
                         }
                         "other" -> {
-                            finishAffinity()
                             startActivity(Intent(this, CompanyHomeActivity::class.java))
+                            finishAffinity()
                         }
                     }
                 } else {

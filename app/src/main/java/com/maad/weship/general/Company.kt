@@ -16,5 +16,6 @@ class Company(
     var companyType: String = "",
     var userType: String = "",
     var id: String = "",
-    var image: String = ""
+    var image: String = "",
+    val rating: Double = 5.0
 ) : Parcelable

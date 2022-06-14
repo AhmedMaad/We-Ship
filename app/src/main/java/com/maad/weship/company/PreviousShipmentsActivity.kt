@@ -11,6 +11,9 @@ class PreviousShipmentsActivity : ParentActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityPreviousShipmentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //show toast in case of no previous history, hide progress bar
+
     }
 
 }

@@ -49,7 +49,7 @@ class ShippingCompanyHomeActivity : ParentActivity(), RequestsAdapter.ItemClickL
                 for (status in statusRequests)
                     if (status.userId == uId) {
                         managedShipments.add(status)
-                        Log.d("trace", "Repeated request")
+                        //Log.d("trace", "Repeated request")
                     }
                 fetchAllShipmentRequests()
             }
@@ -64,12 +64,12 @@ class ShippingCompanyHomeActivity : ParentActivity(), RequestsAdapter.ItemClickL
                 var flag = false
                 for (managedShipment in managedShipments) {
                     if (shipment.requestId == managedShipment.request.requestId) {
-                        Log.d("trace", "Final repetition")
+                        //Log.d("trace", "Final repetition")
                         flag = true
                     }
                 }
                 if (!flag) {
-                    Log.d("trace", "Adding Request after filtration")
+                    //Log.d("trace", "Adding Request after filtration")
                     toBeShownRequests.add(shipment)
                 }
             }
@@ -124,15 +124,26 @@ class ShippingCompanyHomeActivity : ParentActivity(), RequestsAdapter.ItemClickL
 
                 binding.progress.visibility = View.VISIBLE
                 val price = priceET.text.toString().toDouble()
-                val requestStatus = ShipmentRequest(toBeShownRequests[position], uId, price)
+                val requestStatus = ShipmentRequest(
+                    toBeShownRequests[position],
+                    uId,
+                    price,
+                    intent.getStringExtra("name")!!
+                )
                 db
                     .collection("shipmentRequestStatus")
                     .add(requestStatus)
                     .addOnSuccessListener {
-                        toBeShownRequests.removeAt(position)
-                        adapter.notifyItemRemoved(position)
-                        binding.progress.visibility = View.GONE
-                        Toast.makeText(this, "Price Sent", Toast.LENGTH_SHORT).show()
+                        val map = HashMap<String, String>()
+                        map["shipmentRequestId"] = it.id
+                        db.collection("shipmentRequestStatus").document(it.id).update(map as Map<String, String>)
+                            .addOnSuccessListener {
+                                toBeShownRequests.removeAt(position)
+                                adapter.notifyItemRemoved(position)
+                                binding.progress.visibility = View.GONE
+                                Toast.makeText(this, "Price Sent", Toast.LENGTH_SHORT).show()
+                            }
+
                     }
 
             }
