@@ -14,7 +14,7 @@
         android:theme="@style/Theme.WeShip"
         tools:targetApi="31">
         <activity
-            android:name=".company.CompanyProfileActivity"
+            android:name=".general.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".company.PreviousShipmentsActivity"
@@ -32,7 +32,7 @@
             android:name=".company.CompanyHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".company.CompanySignUpActivity"
+            android:name=".general.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".general.CompanyTypeActivity"
@@ -44,20 +44,19 @@
             android:name=".general.SignUp2Activity"
             android:exported="false" />
         <activity
-            android:name=".general.SignUpActivity"
-            android:exported="false" />
-        <activity
             android:name=".general.SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".general.HomeActivity"
-            android:exported="true"
-            android:theme="@style/NoActionBar">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".general.HomeActivity"
+            android:exported="true"
+            android:theme="@style/NoActionBar">
+
         </activity>
 
         <meta-data

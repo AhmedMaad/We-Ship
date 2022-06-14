@@ -1,4 +1,4 @@
-package com.maad.weship.shipping
+package com.maad.weship.general
 
 class Representative(
     val name: String = "",

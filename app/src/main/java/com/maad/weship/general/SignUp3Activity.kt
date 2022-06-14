@@ -10,7 +10,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.maad.weship.company.CompanyHomeActivity
 import com.maad.weship.databinding.ActivitySignUp3Binding
-import com.maad.weship.shipping.Representative
 import com.maad.weship.shipping.ShippingCompanyHomeActivity
 
 class SignUp3Activity : ParentActivity() {
