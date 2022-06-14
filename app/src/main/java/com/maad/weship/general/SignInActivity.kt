@@ -114,6 +114,7 @@ class SignInActivity : ParentActivity() {
                         }
                     }
                 } else {
+                    Toast.makeText(this, "Wrong username", Toast.LENGTH_SHORT).show()
                     binding.progress.visibility = View.INVISIBLE
                     binding.loginBtn.visibility = View.VISIBLE
                 }
